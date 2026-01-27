@@ -1,0 +1,17 @@
+services:
+  squid:
+    image: ubuntu/squid
+    container_name: squid
+    ports:
+      - "3128:3128"
+    volumes:
+      - ./squid_config/squid.conf:/etc/squid/squid.conf
+    restart: always
+  web-pac:
+    image: nginx
+    container_name: web-pac
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx_config/web:/usr/share/nginx/html
+    restart: always
