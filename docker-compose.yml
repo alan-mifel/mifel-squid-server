@@ -3,7 +3,7 @@ services:
     image: ubuntu/squid
     container_name: squid
     ports:
-      - "3128:3128"
+      - "3130:3130"
     volumes:
       - ./squid_config/squid.conf:/etc/squid/squid.conf
     restart: always
@@ -14,4 +14,5 @@ services:
       - "8080:80"
     volumes:
       - ./nginx_config/web:/usr/share/nginx/html
+      - ./nginx_config/default.conf:/etc/nginx/conf.d/default.conf
     restart: always
