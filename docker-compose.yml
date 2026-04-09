@@ -6,6 +6,9 @@ services:
       - "3130:3130"
     volumes:
       - ./squid_config/squid.conf:/etc/squid/squid.conf
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     restart: always
   web-pac:
     image: nginx
